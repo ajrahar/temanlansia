@@ -1,7 +1,13 @@
 import styles from './TopNavBar.module.css'
 import { useState, useEffect } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 
-const links = ['Beranda', 'Layanan', 'Untuk Caregiver', 'Sumber Daya']
+const links = [
+  { label: 'Beranda', to: '/' },
+  { label: 'Layanan', to: '/layanan' },
+  { label: 'Untuk Caregiver', to: '/caregiver' },
+  { label: 'Sumber Daya', to: '/sumber-daya' },
+]
 
 export default function TopNavBar() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,17 +21,23 @@ export default function TopNavBar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} id="navbar">
       <div className={styles.container}>
-        <div className={styles.logo}>Teman Lansia</div>
+        <Link to="/" className={styles.logo}>Teman Lansia</Link>
 
         <ul className={styles.links}>
-          {links.map((l, i) => (
-            <li key={l}>
-              <a href="#" className={i === 0 ? styles.active : styles.link}>{l}</a>
+          {links.map((l) => (
+            <li key={l.to}>
+              <NavLink
+                to={l.to}
+                end={l.to === '/'}
+                className={({ isActive }) => isActive ? styles.active : styles.link}
+              >
+                {l.label}
+              </NavLink>
             </li>
           ))}
         </ul>
 
-        <a href="#cta" className={styles.cta} id="nav-cta-btn">Mulai Sekarang</a>
+        <Link to="/layanan#cta" className={styles.cta} id="nav-cta-btn">Mulai Sekarang</Link>
       </div>
     </nav>
   )

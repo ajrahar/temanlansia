@@ -1,0 +1,259 @@
+.hero {
+  padding: 160px 32px 80px;
+  background: linear-gradient(160deg, #E8F4E8 0%, #FDF9F4 60%);
+  text-align: center;
+}
+.heroInner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(70,103,71,0.12);
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #466747;
+}
+.heroTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #34322E;
+}
+.heroDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #615F5A;
+  max-width: 600px;
+}
+.heroStats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 48px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+.stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.statNum {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: #34322E;
+  letter-spacing: -1px;
+}
+.statLabel {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #615F5A;
+}
+.divider { width: 1px; height: 40px; background: #E7E5E4; }
+.heroCta {
+  display: inline-flex;
+  padding: 18px 48px;
+  background: linear-gradient(135deg, #466747 0%, #38593A 100%);
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(70,103,71,0.25);
+  transition: transform .2s, opacity .2s;
+}
+.heroCta:hover { transform: translateY(-2px); opacity: .92; }
+
+/* Shared section styles */
+.section { padding: 96px 32px; }
+.sectionInner, .reqInner { max-width: 1216px; margin: 0 auto; }
+.sectionTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 40px);
+  letter-spacing: -1.2px;
+  color: #34322E;
+  margin-bottom: 12px;
+}
+.sectionDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  color: #615F5A;
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+/* Benefits grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.benefitCard {
+  background: #fff;
+  border: 1px solid rgba(181,177,171,0.15);
+  border-radius: 28px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .25s, box-shadow .25s;
+}
+.benefitCard:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
+.benefitEmoji { font-size: 36px; }
+.benefitTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #34322E;
+}
+.benefitDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  color: #615F5A;
+}
+
+/* Requirements */
+.reqSection { padding: 0 32px 96px; background: #F7F3EE; }
+.reqInner {
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.reqList { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.reqItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #34322E;
+}
+.reqCheck {
+  color: #466747;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 28px; }
+.step { display: flex; align-items: flex-start; gap: 20px; }
+.stepNum {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  background: #466747;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+}
+.stepTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #34322E;
+  margin-bottom: 6px;
+}
+.stepDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  color: #615F5A;
+}
+
+/* Form section */
+.formSection { padding: 96px 32px; background: #fff; }
+.formInner {
+  max-width: 680px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #3E6284 0%, #315678 100%);
+  border-radius: 40px;
+  padding: 64px;
+  color: #fff;
+}
+.formTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.formDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 36px;
+}
+.form { display: flex; flex-direction: column; gap: 16px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.formGroup { display: flex; flex-direction: column; gap: 6px; }
+.label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+}
+.input {
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+.input::placeholder { color: rgba(255,255,255,0.45); }
+.input:focus { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.18); }
+.input option { color: #34322E; }
+.submitBtn {
+  margin-top: 8px;
+  padding: 18px;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #3E6284;
+  cursor: pointer;
+  transition: opacity .2s, transform .2s;
+}
+.submitBtn:hover { opacity: .92; transform: translateY(-1px); }
+
+@media (max-width: 900px) {
+  .benefitsGrid { grid-template-columns: 1fr 1fr; }
+  .reqInner { grid-template-columns: 1fr; gap: 48px; }
+  .formRow { grid-template-columns: 1fr; }
+  .formInner { padding: 40px 28px; }
+  .heroStats { flex-direction: column; gap: 16px; padding: 24px; }
+  .divider { width: 40px; height: 1px; }
+}
+@media (max-width: 600px) {
+  .benefitsGrid { grid-template-columns: 1fr; }
+}

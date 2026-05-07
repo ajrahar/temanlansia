@@ -1,11 +1,12 @@
 import styles from './Footer.module.css'
+import { Link } from 'react-router-dom'
 
 const footerLinks = [
-  { label: 'Tentang Kami', href: '#' },
-  { label: 'Cara Kerja', href: '#' },
-  { label: 'Layanan', href: '#layanan' },
-  { label: 'Blog', href: '#' },
-  { label: 'Karir', href: '#' },
+  { label: 'Tentang Kami', to: '#' },
+  { label: 'Layanan', to: '/layanan' },
+  { label: 'Untuk Caregiver', to: '/caregiver' },
+  { label: 'Sumber Daya', to: '/sumber-daya' },
+  { label: 'Karir', to: '#' },
 ]
 
 function InstagramIcon() {
@@ -24,7 +25,7 @@ export default function Footer() {
       <div className={styles.container}>
         {/* Brand */}
         <div className={styles.brand}>
-          <span className={styles.logo}>Teman Lansia</span>
+          <Link to="/" className={styles.logo}>Teman Lansia</Link>
           <p className={styles.tagline}>
             Pendamping profesional dan terpercaya untuk lansia Indonesia, hadir agar Anda bisa bekerja dengan tenang.
           </p>
@@ -47,7 +48,9 @@ export default function Footer() {
         {/* Nav links */}
         <nav className={styles.links} aria-label="Footer navigation">
           {footerLinks.map(l => (
-            <a key={l.label} href={l.href} className={styles.link}>{l.label}</a>
+            l.to.startsWith('/')
+              ? <Link key={l.label} to={l.to} className={styles.link}>{l.label}</Link>
+              : <a key={l.label} href={l.to} className={styles.link}>{l.label}</a>
           ))}
         </nav>
       </div>
