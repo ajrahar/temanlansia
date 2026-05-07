@@ -1,0 +1,118 @@
+.section {
+  background: #FDF9F4;
+  padding: 96px 32px;
+}
+.container {
+  max-width: 1216px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+/* Left */
+.left {
+  flex: 0 0 530px;
+}
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.featureRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.iconBox {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featureText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.featureTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #34322E;
+}
+.featureDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #615F5A;
+}
+/* Right */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: #34322E;
+}
+.bodyText {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+  color: #615F5A;
+}
+.imageCard {
+  background: #E6E2DB;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+}
+.image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.imageCard:hover .image { opacity: 0.7; }
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.imageCard:hover .imageOverlay { background: rgba(0,0,0,0.28); }
+.playBtn {
+  width: 80px; height: 80px;
+  background: #fff;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding-left: 4px;
+}
+.playBtn:hover { transform: scale(1.08); }
+
+@media (max-width: 960px) {
+  .container { flex-direction: column-reverse; gap: 48px; }
+  .left { flex: unset; width: 100%; }
+}

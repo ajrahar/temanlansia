@@ -1,0 +1,109 @@
+.section {
+  margin: 0 32px 0;
+  padding: 96px 96px;
+  background: linear-gradient(135deg, #3E6284 0%, #315678 100%);
+  border-radius: 48px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+.blobRight {
+  position: absolute;
+  width: 384px; height: 384px;
+  right: -192px; top: -192px;
+  background: rgba(255,255,255,0.06);
+  filter: blur(32px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.blobLeft {
+  position: absolute;
+  width: 384px; height: 384px;
+  left: -192px; bottom: -192px;
+  background: rgba(0,0,0,0.06);
+  filter: blur(32px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 900px;
+  text-align: center;
+}
+.heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1;
+  letter-spacing: -3px;
+  color: #F7F9FF;
+}
+.subtext {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 32px;
+  color: #F7F9FF;
+  opacity: 0.9;
+  max-width: 640px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 8px;
+}
+.btnWhite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 48px;
+  background: #fff;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #3E6284;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btnWhite:hover { transform: translateY(-2px); opacity: 0.95; }
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 48px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  transition: background 0.2s, transform 0.2s;
+}
+.btnOutline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.7;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #F7F9FF;
+}
+
+@media (max-width: 768px) {
+  .section { margin: 0 16px; padding: 64px 32px; }
+  .buttons { flex-direction: column; }
+  .btnWhite, .btnOutline { width: 100%; }
+}

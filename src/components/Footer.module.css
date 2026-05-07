@@ -1,0 +1,61 @@
+.footer {
+  background: #F5F5F4;
+  border-top: 1px solid #E7E5E4;
+  padding: 64px 0 32px;
+  margin-top: 96px;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+}
+.logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1E293B;
+}
+.tagline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #64748B;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #64748B;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.link:hover { color: #1E293B; }
+.bottom {
+  max-width: 1280px;
+  margin: 40px auto 0;
+  padding: 24px 32px 0;
+  border-top: 1px solid #E7E5E4;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #64748B;
+}

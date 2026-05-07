@@ -1,0 +1,187 @@
+.hero {
+  padding-top: 80px; /* navbar height */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(0deg, #FDF9F4, #FDF9F4), #fff;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 32px 100px;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+/* --- LEFT COPY --- */
+.copy {
+  flex: 0 0 auto;
+  width: min(576px, 48%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #C6EDC4;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #38593A;
+  width: fit-content;
+}
+.heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1;
+  letter-spacing: -3.6px;
+  color: #34322E;
+}
+.subheading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 32px;
+  color: #615F5A;
+  max-width: 480px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #3E6284 0%, #315678 100%);
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #F7F9FF;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 8px 10px -6px rgba(0,0,0,.1);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btnPrimary:hover { transform: translateY(-2px); opacity: 0.93; }
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  background: #E6E2DB;
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #34322E;
+  transition: background 0.2s, transform 0.2s;
+}
+.btnSecondary:hover { background: #d8d3cb; transform: translateY(-2px); }
+
+/* --- RIGHT IMAGE --- */
+.imageWrap {
+  flex: 1;
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blobBlue {
+  position: absolute;
+  width: 256px; height: 256px;
+  left: -40px; bottom: -40px;
+  background: rgba(174,210,250,0.35);
+  filter: blur(32px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.blobGreen {
+  position: absolute;
+  width: 320px; height: 320px;
+  right: -40px; top: -40px;
+  background: rgba(198,237,196,0.25);
+  filter: blur(32px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.photoCard {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 48px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  animation: floatY 6s ease-in-out infinite;
+}
+.photo {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+.floatingCard {
+  position: absolute;
+  right: -28px;
+  bottom: 48px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 20px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.12), 0 4px 6px -4px rgba(0,0,0,.1);
+  min-width: 190px;
+  max-width: 210px;
+  animation: floatY 6s 1s ease-in-out infinite;
+}
+.floatingIcon {
+  width: 40px; height: 40px;
+  background: #466747;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.floatingText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.floatingTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #34322E;
+}
+.floatingDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #615F5A;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 900px) {
+  .container { flex-direction: column; gap: 48px; }
+  .copy { width: 100%; }
+  .imageWrap { width: 100%; }
+  .floatingCard { right: 8px; }
+}

@@ -1,0 +1,194 @@
+.section {
+  padding: 96px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1;
+  letter-spacing: -1.2px;
+  color: #34322E;
+}
+.subheading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #615F5A;
+  max-width: 660px;
+}
+
+/* Bento Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+/* Card shared */
+.cardTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #34322E;
+}
+.cardTitleDark {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #34322E;
+}
+.cardDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Service 1: Medical – top left */
+.cardMedical {
+  grid-column: 1;
+  grid-row: 1;
+  background: #ECE7E1;
+  border-radius: 40px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  transition: transform 0.25s;
+}
+.cardMedical:hover { transform: translateY(-4px); }
+.tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #34322E;
+  width: fit-content;
+}
+.medicalDecor {
+  position: absolute;
+  right: -32px; bottom: -32px;
+  pointer-events: none;
+}
+
+/* Service 2: Walk – top right */
+.cardWalk {
+  grid-column: 2;
+  grid-row: 1;
+  background: #C6EDC4;
+  border-radius: 40px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  transition: transform 0.25s;
+}
+.cardWalk:hover { transform: translateY(-4px); }
+.walkDecor {
+  position: absolute;
+  right: 40px; bottom: 40px;
+  pointer-events: none;
+}
+
+/* Service 3: Errands – bottom left */
+.cardErrands {
+  grid-column: 1;
+  grid-row: 2;
+  background: #FEC38F;
+  border-radius: 40px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  min-height: 220px;
+  transition: transform 0.25s;
+}
+.cardErrands:hover { transform: translateY(-4px); }
+.errandsTitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #34322E;
+}
+.errandsDesc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(100,60,20,0.8);
+  max-width: 240px;
+}
+
+/* Service 4: Monitor – bottom right */
+.cardMonitor {
+  grid-column: 2;
+  grid-row: 2;
+  background: #fff;
+  border: 1px solid rgba(181,177,171,0.2);
+  border-radius: 40px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 220px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cardMonitor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.monitorText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.monitorIcon {
+  flex-shrink: 0;
+  width: 128px; height: 128px;
+  background: rgba(62,98,132,0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .cardMedical, .cardWalk, .cardErrands, .cardMonitor {
+    grid-column: 1; grid-row: auto;
+  }
+  .cardMonitor { flex-direction: column; }
+}
