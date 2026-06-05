@@ -1,24 +1,26 @@
 import styles from './ServicesSection.module.css'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function ServicesSection() {
+  const { t } = useLanguage()
+  const s = t.services
+
   return (
     <section className={styles.section} id="layanan">
       {/* Section header */}
       <div className={styles.header}>
-        <h2 className={styles.heading}>Layanan Kami</h2>
-        <p className={styles.subheading}>
-          Empat pilar layanan yang dirancang untuk memberikan ketenangan pikiran bagi Anda dan kebahagiaan untuk orang tua tercinta.
-        </p>
+        <h2 className={styles.heading}>{s.heading}</h2>
+        <p className={styles.subheading}>{s.subheading}</p>
       </div>
 
       {/* Bento grid */}
       <div className={styles.grid}>
         {/* Service 1: Medical Visits – tall left */}
         <div className={styles.cardMedical} id="service-medical">
-          <div className={styles.tag}>UNGGULAN</div>
-          <h3 className={styles.cardTitle}>Kunjungan Medis</h3>
+          <div className={styles.tag}>{s.tag}</div>
+          <h3 className={styles.cardTitle}>{s.medicalTitle}</h3>
           <p className={styles.cardDesc} style={{ color: '#615F5A', maxWidth: 300 }}>
-            Perawat dan tenaga medis terlatih hadir ke rumah untuk memantau kesehatan rutin orang tua Anda.
+            {s.medicalDesc}
           </p>
           <div className={styles.medicalDecor} aria-hidden="true">
             <svg width="120" height="120" viewBox="0 0 120 120" fill="none" opacity="0.35">
@@ -30,9 +32,9 @@ export default function ServicesSection() {
 
         {/* Service 2: Companion Walks – tall right */}
         <div className={styles.cardWalk} id="service-walk">
-          <h3 className={styles.cardTitle}>Teman Jalan</h3>
+          <h3 className={styles.cardTitle}>{s.walkTitle}</h3>
           <p className={styles.cardDesc} style={{ color: '#38593A', maxWidth: 300 }}>
-            Pendamping ramah dan aktif menemani orang tua berolahraga ringan dan beraktivitas di luar rumah.
+            {s.walkDesc}
           </p>
           <div className={styles.walkDecor} aria-hidden="true">
             <svg width="52" height="86" viewBox="0 0 52 86" fill="none" opacity="0.25">
@@ -47,18 +49,16 @@ export default function ServicesSection() {
           <svg width="44" height="38" viewBox="0 0 44 38" fill="none">
             <path d="M4 10h36M8 10V34a2 2 0 002 2h24a2 2 0 002-2V10M16 10V6a2 2 0 012-2h8a2 2 0 012 2v4" stroke="#643C14" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <h3 className={styles.errandsTitle}>Bantuan Kegiatan Harian</h3>
-          <p className={styles.errandsDesc}>
-            Belanja, antar ke dokter, dan urusan sehari-hari ditangani dengan penuh tanggung jawab.
-          </p>
+          <h3 className={styles.errandsTitle}>{s.errandsTitle}</h3>
+          <p className={styles.errandsDesc}>{s.errandsDesc}</p>
         </div>
 
         {/* Service 4: Monitoring – bottom right wide */}
         <div className={styles.cardMonitor} id="service-monitor">
           <div className={styles.monitorText}>
-            <h3 className={styles.cardTitleDark}>Monitoring 24/7</h3>
+            <h3 className={styles.cardTitleDark}>{s.monitorTitle}</h3>
             <p className={styles.cardDesc} style={{ color: '#615F5A' }}>
-              Laporan aktivitas langsung ke smartphone Anda melalui aplikasi Teman Lansia.
+              {s.monitorDesc}
             </p>
           </div>
           <div className={styles.monitorIcon}>

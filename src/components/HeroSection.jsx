@@ -1,34 +1,38 @@
 import styles from './HeroSection.module.css'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function HeroSection() {
+  const { t } = useLanguage()
+  const h = t.hero
+
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.container}>
         {/* Left: Copy */}
         <div className={styles.copy}>
           {/* Badge */}
-          <div className={styles.badge} aria-label="Layanan Pendampingan Lansia Terpercaya di Indonesia">
+          <div className={styles.badge} aria-label={h.badge}>
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="6.5" cy="6.5" r="6.5" fill="#38593A"/>
             </svg>
-            <span>Layanan Pendampingan Lansia Terpercaya di Indonesia</span>
+            <span>{h.badge}</span>
           </div>
 
           {/* H1 */}
-          <h1 className={`${styles.heading} fade-in`}>Teman Lansia</h1>
+          <h1 className={`${styles.heading} fade-in`}>{h.heading}</h1>
 
           {/* Subheading */}
           <p className={`${styles.subheading} fade-in-delay-1`}>
-            Pendamping profesional untuk orang tua Anda
+            {h.subheading}
           </p>
 
           {/* Buttons */}
           <div className={`${styles.buttons} fade-in-delay-2`}>
             <a href="#cta" className={styles.btnPrimary} id="hero-cta-primary">
-              Konsultasi Gratis
+              {h.btnPrimary}
             </a>
             <a href="#layanan" className={styles.btnSecondary} id="hero-cta-secondary">
-              Lihat Layanan
+              {h.btnSecondary}
             </a>
           </div>
         </div>
@@ -43,7 +47,7 @@ export default function HeroSection() {
           <div className={styles.photoCard}>
             <img
               src="/elderly_care_hero.png"
-              alt="Caregiver Teman Lansia mendampingi orang tua dengan hangat"
+              alt={h.photoAlt}
               className={styles.photo}
             />
           </div>
@@ -56,8 +60,8 @@ export default function HeroSection() {
               </svg>
             </div>
             <div className={styles.floatingText}>
-              <span className={styles.floatingTitle}>Caregivers Terverifikasi</span>
-              <span className={styles.floatingDesc}>Terlatih & berpengalaman dalam merawat lansia</span>
+              <span className={styles.floatingTitle}>{h.floatingTitle}</span>
+              <span className={styles.floatingDesc}>{h.floatingDesc}</span>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { LanguageProvider } from './i18n/LanguageContext'
 import TopNavBar from './components/TopNavBar'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -18,15 +19,17 @@ function Layout({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/layanan" element={<LayananPage />} />
-          <Route path="/caregiver" element={<CaregiverPage />} />
-          <Route path="/sumber-daya" element={<SumberDayaPage />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/layanan" element={<LayananPage />} />
+            <Route path="/caregiver" element={<CaregiverPage />} />
+            <Route path="/sumber-daya" element={<SumberDayaPage />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }

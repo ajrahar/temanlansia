@@ -1,13 +1,7 @@
 import styles from './TopNavBar.module.css'
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-
-const links = [
-  { label: 'Beranda', to: '/' },
-  { label: 'Layanan', to: '/layanan' },
-  { label: 'Untuk Caregiver', to: '/caregiver' },
-  { label: 'Sumber Daya', to: '/sumber-daya' },
-]
+import { useLanguage } from '../i18n/LanguageContext'
 
 function HamburgerIcon({ open }) {
   return (
@@ -29,8 +23,16 @@ function HamburgerIcon({ open }) {
 }
 
 export default function TopNavBar() {
+  const { t, lang, toggleLang } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const links = [
+    { label: t.nav.home, to: '/' },
+    { label: t.nav.services, to: '/layanan' },
+    { label: t.nav.caregiver, to: '/caregiver' },
+    { label: t.nav.resources, to: '/sumber-daya' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -74,14 +76,28 @@ export default function TopNavBar() {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
-          <Link to="/layanan" className={styles.cta} id="nav-cta-btn">Mulai Sekarang</Link>
+          {/* Desktop right group */}
+          <div className={styles.rightGroup}>
+            {/* Language toggle */}
+            <button
+              className={styles.langToggle}
+              onClick={toggleLang}
+              aria-label={`Switch to ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
+              id="lang-toggle-btn"
+            >
+              <span className={lang === 'id' ? styles.langActive : styles.langInactive}>ID</span>
+              <span className={styles.langDivider}>|</span>
+              <span className={lang === 'en' ? styles.langActive : styles.langInactive}>EN</span>
+            </button>
+
+            <Link to="/layanan" className={styles.cta} id="nav-cta-btn">{t.nav.cta}</Link>
+          </div>
 
           {/* Hamburger button (mobile only) */}
           <button
             className={styles.burger}
             onClick={() => setMenuOpen(o => !o)}
-            aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={menuOpen}
             id="nav-burger-btn"
           >
@@ -99,9 +115,21 @@ export default function TopNavBar() {
       <div className={`${styles.drawer} ${menuOpen ? styles.drawerOpen : ''}`} id="mobile-menu">
         <div className={styles.drawerHeader}>
           <span className={styles.drawerLogo}>Teman Lansia</span>
-          <button className={styles.drawerClose} onClick={closeMenu} aria-label="Tutup menu">
-            <HamburgerIcon open={true} />
-          </button>
+          <div className={styles.drawerHeaderRight}>
+            {/* Language toggle in drawer */}
+            <button
+              className={styles.langToggleMobile}
+              onClick={toggleLang}
+              aria-label={`Switch to ${lang === 'id' ? 'English' : 'Bahasa Indonesia'}`}
+            >
+              <span className={lang === 'id' ? styles.langActive : styles.langInactive}>ID</span>
+              <span className={styles.langDivider}>|</span>
+              <span className={lang === 'en' ? styles.langActive : styles.langInactive}>EN</span>
+            </button>
+            <button className={styles.drawerClose} onClick={closeMenu} aria-label={t.nav.closeMenu}>
+              <HamburgerIcon open={true} />
+            </button>
+          </div>
         </div>
 
         <nav className={styles.drawerLinks}>
@@ -127,7 +155,7 @@ export default function TopNavBar() {
             id="mobile-cta-btn"
             onClick={closeMenu}
           >
-            Mulai Sekarang
+            {t.nav.cta}
           </Link>
           <a
             href="https://www.instagram.com/temanlansia.id?igsh=ODEyZ2VqMGttb2hq"

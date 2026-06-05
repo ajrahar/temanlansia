@@ -62,6 +62,57 @@
   text-decoration: none;
 }
 
+/* Desktop right group */
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Language toggle */
+.langToggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748B;
+  transition: border-color 0.2s, background 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.4px;
+}
+.langToggle:hover {
+  border-color: #3E6284;
+  background: rgba(62,98,132,0.05);
+}
+.langActive  { color: #3E6284; }
+.langInactive { color: #94A3B8; }
+.langDivider  { color: #CBD5E1; }
+
+.langToggleMobile {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 9999px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748B;
+  transition: border-color 0.2s;
+  letter-spacing: 0.4px;
+}
+
 /* Desktop CTA */
 .cta {
   flex-shrink: 0;
@@ -135,6 +186,11 @@
   font-size: 20px;
   letter-spacing: -0.8px;
   color: #1E293B;
+}
+.drawerHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .drawerClose {
   display: flex;
@@ -226,9 +282,9 @@
 
 /* ---- Responsive breakpoints ---- */
 @media (max-width: 900px) {
-  /* Hide desktop links & CTA */
-  .links { display: none; }
-  .cta   { display: none; }
+  /* Hide desktop links & right group */
+  .links      { display: none; }
+  .rightGroup { display: none; }
   /* Show burger */
   .burger  { display: flex; }
   /* Show backdrop when menu is open (controlled by JS adding class) */

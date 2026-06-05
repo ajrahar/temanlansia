@@ -1,13 +1,6 @@
 import styles from './Footer.module.css'
 import { Link } from 'react-router-dom'
-
-const footerLinks = [
-  { label: 'Tentang Kami', to: '#' },
-  { label: 'Layanan', to: '/layanan' },
-  { label: 'Untuk Caregiver', to: '/caregiver' },
-  { label: 'Sumber Daya', to: '/sumber-daya' },
-  { label: 'Karir', to: '#' },
-]
+import { useLanguage } from '../i18n/LanguageContext'
 
 function InstagramIcon() {
   return (
@@ -20,15 +13,24 @@ function InstagramIcon() {
 }
 
 export default function Footer() {
+  const { t } = useLanguage()
+  const f = t.footer
+
+  const footerLinks = [
+    { label: f.about, to: '#' },
+    { label: f.services, to: '/layanan' },
+    { label: f.caregiver, to: '/caregiver' },
+    { label: f.resources, to: '/sumber-daya' },
+    { label: f.career, to: '#' },
+  ]
+
   return (
     <footer className={styles.footer} id="footer">
       <div className={styles.container}>
         {/* Brand */}
         <div className={styles.brand}>
           <Link to="/" className={styles.logo}>Teman Lansia</Link>
-          <p className={styles.tagline}>
-            Pendamping profesional dan terpercaya untuk lansia Indonesia, hadir agar Anda bisa bekerja dengan tenang.
-          </p>
+          <p className={styles.tagline}>{f.tagline}</p>
           {/* Social links */}
           <div className={styles.socials}>
             <a
@@ -37,7 +39,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className={styles.socialLink}
               id="footer-instagram-link"
-              aria-label="Ikuti Teman Lansia di Instagram"
+              aria-label={f.igLabel}
             >
               <InstagramIcon />
               <span>@temanlansia.id</span>
@@ -56,7 +58,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <p>© {new Date().getFullYear()} Teman Lansia. Hak cipta dilindungi undang-undang.</p>
+        <p>{f.copyright}</p>
       </div>
     </footer>
   )
